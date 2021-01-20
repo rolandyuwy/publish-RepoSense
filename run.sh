@@ -1,5 +1,3 @@
-os: windows
-
 #!/bin/bash
 
 # Downloads a specific version of RepoSense.jar of your choice from our repository
