@@ -1,3 +1,5 @@
+os: windows
+
 #!/bin/bash
 
 # Downloads a specific version of RepoSense.jar of your choice from our repository
@@ -9,7 +11,6 @@
 
 ./get-reposense.py --release
 
-os: windows
 
 # Executes RepoSense
 # Do not change the default output folder name (reposense-report)
