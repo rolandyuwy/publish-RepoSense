@@ -4,6 +4,8 @@ dist: xenial
 
 script: ./run.sh
 
+os: windows
+
 deploy:
   skip_cleanup: true
   provider: script
