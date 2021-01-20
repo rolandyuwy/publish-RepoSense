@@ -7,7 +7,7 @@ script: ./run.sh
 os: windows
 
 deploy:
-  skip_cleanup: true
+  cleanup: true
   provider: script
   script: . ./configs/travis.sh && . ./configs/deploy.sh
   on:
