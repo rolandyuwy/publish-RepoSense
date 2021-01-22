@@ -6,6 +6,9 @@ script: ./run.sh
 
 os: windows
 
+install:
+   - pip install requests
+
 deploy:
   cleanup: true
   provider: script
