@@ -6,8 +6,9 @@ script: ./run.sh
 
 os: windows
 
-install:
-   - pip install requests
+before_script:
+  - easy_install distribute
+  - pip install requests
 
 deploy:
   cleanup: true
