@@ -1,56 +1,51 @@
 {
   "authorDailyContributionsMap": {
     "ongspxm": [],
-    "AdityaA1998": [],
-    "yamidark": [],
-    "yong24s": [],
-    "eugenepeh": [
+    "jamessspanggg": [
       {
-        "insertions": 7,
-        "deletions": 0,
-        "date": "2019-12-24",
+        "date": "2021-01-04",
         "commitResults": [
           {
-            "hash": "4b4ff38a69ce3a2b1732d2e5fc6e48be43c693a4",
-            "messageTitle": "README: add acknowledgements section (#978)",
-            "messageBody": "It is required for us to acknowledge the use of free services.\r\n\r\nAs part of the requirement to apply for the Open Source Plan from\r\nNetlify, let\u0027s add a section to feature the usage of their services on\r\nREADME.",
-            "insertions": 7,
-            "deletions": 0
+            "hash": "3b42fb4a370dddc13a65c74abb2838b1d9f25443",
+            "messageTitle": "Update `About us` page (#1393)",
+            "messageBody": "The `About us` page contains outdated information as some \r\ncontributors no longer participate in RepoSense.\r\n\r\nLet\u0027s update the `About us` page to reflect the most recent team \r\narrangements.",
+            "fileTypesAndContributionMap": {
+              "md": {
+                "insertions": 55,
+                "deletions": 30
+              }
+            }
           }
         ]
       }
-    ]
-  },
-  "authorFinalContributionMap": {
-    "ongspxm": 0,
-    "AdityaA1998": 0,
-    "yamidark": 1,
-    "yong24s": 2,
-    "eugenepeh": 7
+    ],
+    "yamidark": [],
+    "yong24s": [],
+    "eugenepeh": []
   },
   "authorFileTypeContributionMap": {
     "ongspxm": {
       "gradle": 0,
-      "jade": 0,
+      "pug": 0,
       "java": 0,
       "js": 0,
       "md": 0,
       "scss": 0,
       "yml": 0
     },
-    "AdityaA1998": {
+    "jamessspanggg": {
       "gradle": 0,
-      "jade": 0,
+      "pug": 0,
       "java": 0,
       "js": 0,
-      "md": 0,
+      "md": 55,
       "scss": 0,
       "yml": 0
     },
     "yamidark": {
       "gradle": 0,
-      "jade": 0,
-      "java": 1,
+      "pug": 0,
+      "java": 0,
       "js": 0,
       "md": 0,
       "scss": 0,
@@ -58,8 +53,8 @@
     },
     "yong24s": {
       "gradle": 0,
-      "jade": 0,
-      "java": 2,
+      "pug": 0,
+      "java": 0,
       "js": 0,
       "md": 0,
       "scss": 0,
@@ -67,24 +62,24 @@
     },
     "eugenepeh": {
       "gradle": 0,
-      "jade": 0,
+      "pug": 0,
       "java": 0,
       "js": 0,
-      "md": 7,
+      "md": 0,
       "scss": 0,
       "yml": 0
     }
   },
   "authorContributionVariance": {
     "ongspxm": 0.0,
-    "AdityaA1998": 0.0,
+    "jamessspanggg": 597.1075,
     "yamidark": 0.0,
     "yong24s": 0.0,
-    "eugenepeh": 1.8815999
+    "eugenepeh": 0.0
   },
   "authorDisplayNameMap": {
     "ongspxm": "Metta",
-    "AdityaA1998": "Aditya",
+    "jamessspanggg": "James",
     "yamidark": "Jun An",
     "yong24s": "Yong Hao",
     "eugenepeh": "Eugene"

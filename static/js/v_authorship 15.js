@@ -1,5 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-/* global Vuex */
 const filesSortDict = {
   lineOfCode: (file) => file.lineCount,
   path: (file) => file.path,
@@ -69,7 +68,7 @@ window.vAuthorship = {
         : [];
       if (hash.authorshipFileTypes) {
         this.selectedFileTypes = hash.authorshipFileTypes
-            .split(window.HASH_DELIMITER)
+            .split(window.HASH_FILETYPE_DELIMITER)
             .filter((fileType) => this.fileTypes.includes(fileType));
       }
 
@@ -121,6 +120,10 @@ window.vAuthorship = {
         window.api.loadAuthorship(this.info.repo)
             .then((files) => this.processFiles(files));
       }
+
+      if (!this.info.fileTypeColors) {
+        this.$root.$emit('restoreFileTypeColors', this.info);
+      }
     },
 
     getRepoProps(repo) {
@@ -168,18 +171,12 @@ window.vAuthorship = {
       file.wasCodeLoaded = file.wasCodeLoaded || file.active;
     },
 
-    isUnknownAuthor(name) {
-      return name === '-';
-    },
-
     hasCommits(info) {
       const { isMergeGroup, author } = info;
       const repo = window.REPOS[info.repo];
       if (repo) {
         return isMergeGroup
-            ? Object.entries(repo.commits.authorFinalContributionMap).some(([name, cnt]) => (
-              !this.isUnknownAuthor(name) && cnt > 0
-            ))
+            ? Object.entries(repo.commits.authorFinalContributionMap).some(([name, cnt]) => name !== '-' && cnt > 0)
             : repo.commits.authorFinalContributionMap[author] > 0;
       }
       return false;
@@ -194,7 +191,7 @@ window.vAuthorship = {
 
       lines.forEach((line, lineCount) => {
         const isAuthorMatched = this.info.isMergeGroup
-            ? !this.isUnknownAuthor(line.author.gitId)
+            ? line.author.gitId !== '-'
             : line.author.gitId === this.info.author;
         const authored = (line.author && isAuthorMatched);
 
@@ -268,9 +265,7 @@ window.vAuthorship = {
     },
 
     getContributionFromAllAuthors(contributionMap) {
-      return Object.entries(contributionMap).reduce((acc, [author, cnt]) => (
-        (!this.isUnknownAuthor(author) ? acc + cnt : acc)
-      ), 0);
+      return Object.entries(contributionMap).reduce((acc, [author, cnt]) => (author !== '-' ? acc + cnt : acc), 0);
     },
 
     addBlankLineCount(fileType, lineCount, filesInfoObj) {
@@ -377,8 +372,6 @@ window.vAuthorship = {
           });
       return numLinesModified;
     },
-
-    ...Vuex.mapState(['fileTypeColors']),
   },
 
   created() {
