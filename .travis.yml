@@ -1,17 +1,11 @@
-language: shell
+language: java
 
 dist: xenial
 
 script: ./run.sh
 
-os: windows
-
-before_script:
-  - easy_install distribute
-  - pip install requests
-
 deploy:
-  cleanup: true
+  skip_cleanup: true
   provider: script
   script: . ./configs/travis.sh && . ./configs/deploy.sh
   on:
